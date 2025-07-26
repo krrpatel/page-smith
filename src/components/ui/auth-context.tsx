@@ -45,7 +45,7 @@ export const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
     setIsLoading(true);
     try {
       // Replace with your Flask API endpoint
-      const response = await fetch('/api/auth/login', {
+      const response = await fetch('http://16.16.210.93:1435/api/auth/login', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -73,7 +73,7 @@ export const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
     setIsLoading(true);
     try {
       // Replace with your Flask API endpoint
-      const response = await fetch('/api/auth/signup', {
+      const response = await fetch('http://16.16.210.93:1435/api/auth/signup', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
