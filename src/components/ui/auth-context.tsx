@@ -44,7 +44,7 @@ export const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
 const login = async (email: string, password: string): Promise<boolean> => {
   setIsLoading(true);
   try {
-    const response = await fetch('http://16.16.210.93:1435/api/auth/login', {
+    const response = await fetch('http://18.140.66.9:1435/api/auth/login', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -71,7 +71,7 @@ const login = async (email: string, password: string): Promise<boolean> => {
 const signup = async (email: string, password: string, name?: string): Promise<boolean> => {
   setIsLoading(true);
   try {
-    const response = await fetch('http://16.16.210.93:1435/api/auth/signup', {
+    const response = await fetch('http://18.140.66.9:1435/api/auth/signup', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
