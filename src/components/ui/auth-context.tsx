@@ -68,33 +68,32 @@ const login = async (email: string, password: string): Promise<boolean> => {
 };
 
 
-  const signup = async (email: string, password: string, name?: string): Promise<boolean> => {
-    setIsLoading(true);
-    try {
-      // Replace with your Flask API endpoint
-      const response = await fetch('http://16.16.210.93:1435/api/auth/signup', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({ email, password, name }),
-      });
+const signup = async (email: string, password: string, name?: string): Promise<boolean> => {
+  setIsLoading(true);
+  try {
+    const response = await fetch('http://16.16.210.93:1435/api/auth/signup', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({ email, password, name }),
+    });
 
-      if (response.ok) {
-        const userData = await response.json();
-        setUser(userData.user);
-        localStorage.setItem('user', JSON.stringify(userData.user));
-        localStorage.setItem('token', userData.token);
-        return true;
-      }
-      return false;
-    } catch (error) {
-      console.error('Signup error:', error);
-      return false;
-    } finally {
-      setIsLoading(false);
+    if (response.ok) {
+      const userData = await response.json();
+      setUser(userData.user);
+      localStorage.setItem('user', JSON.stringify(userData.user));
+      return true;
     }
-  };
+    return false;
+  } catch (error) {
+    console.error('Signup error:', error);
+    return false;
+  } finally {
+    setIsLoading(false);
+  }
+};
+
 
   const logout = () => {
     setUser(null);
